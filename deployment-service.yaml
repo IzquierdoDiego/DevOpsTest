@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: DevOpsTest-deployment
+  name: devopstest-deployment
 spec:
   selector:
     matchLabels:
@@ -10,11 +10,11 @@ spec:
   template:
     metadata:
       labels:
-        app: DevOpsTest
+        app: devopstest
     spec:
       containers:
         - name: DevOpsTest
-          image: diego/dockerDevOps:latest # Image that will be used to containers in the cluster
+          image: izquierdodiego/dockerdevops:latest # Image that will be used to containers in the cluster
           imagePullPolicy: Always
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: DevOpsTest-ssvc
+  name: devopstest-ssvc
 spec:
   selector:
     app: DevOpsTest
