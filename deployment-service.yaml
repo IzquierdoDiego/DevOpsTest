@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: DevOpsTest
+      app: devopstest
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
@@ -13,7 +13,7 @@ spec:
         app: devopstest
     spec:
       containers:
-        - name: DevOpsTest
+        - name: devopstest
           image: izquierdodiego/dockerdevops:latest # Image that will be used to containers in the cluster
           imagePullPolicy: Always
           ports:
@@ -28,7 +28,7 @@ metadata: # Metadata of the resource kind we are creating
   name: devopstest-ssvc
 spec:
   selector:
-    app: DevOpsTest
+    app: devopstest
   ports:
     - protocol: "TCP"
       port: 8080 # The port that the service is running on in the cluster
